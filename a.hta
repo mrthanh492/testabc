@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Custom Icon HTA</title>
+<HTA:APPLICATION ID="CustomIconApp" APPLICATIONNAME="Custom Icon HTA" BORDER="thin" BORDERSTYLE="normal" ICON="C:\Users\PC\Downloads\New folder (2)\icon.ico" MAXIMIZEBUTTON="no" MINIMIZEBUTTON="yes" SCROLL="no" SINGLEINSTANCE="yes" WINDOWSTATE="normal">
+
+<script language="vbscript">
+
+Sub OpenFileAutomatically()
+    Dim objShell
+    Set objShell = CreateObject("WScript.Shell")
+    
+    ' Đường dẫn đến file bạn muốn mở
+    Dim filePath
+    filePath = "C:\Users\PC\Downloads\New folder (2)\a.txt"
+    
+    ' Sử dụng lệnh mở file bằng cách gọi shell
+    objShell.Run("notepad.exe " & filePath)
+    
+    Set objShell = Nothing
+    window.close() ' Đóng cửa sổ HTA sau khi mở file (tuỳ chọn)
+End Sub
+
+' Gọi hàm OpenFileAutomatically khi HTA được mở
+OpenFileAutomatically()
+
+</script>
+</head>
+<body>
+</body>
+</html>
